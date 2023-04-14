@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# add mine
+ptf_venv/
+migrations/
+_media/
+note/
