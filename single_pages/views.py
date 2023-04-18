@@ -25,3 +25,9 @@ def projects(request) :
         'single_pages/projects.html',
     )
     
+def toypjt(request) :
+    return render(
+        request,
+        'single_pages/toy_main.html',
+    )
+    

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+<!-- static file load -->
+{% load static %}
+
+<!-- crispy_forms bootstrap5 -->
+{% load crispy_forms_tags %}
+
+<!-- title in head tag -->
+{% block head_title %}blog list{% endblock %}
+
+<!-- contents part in body tag -->
+{% block main_area %}
+    <div class="container px-5">
+        <div class="row">
+            <!-- Blog entries-->
+            <div class="col-lg-8" id="main_area">
+                {% if user.is_authenticated %}
+                    {% if user.superuser or user.is_staff %}
+                        <a class="btn btn-primary btn-sm float-end mt-5" href="/blog/create_post/" role="button"><i class="bi bi-pencil-square"></i>&nbsp;&nbsp;New Post</a>
+                    {% endif %}
+                {% endif %}
+                <h1 class="my-4 fw-bold">
+                    Blog
+                    {% if search_info %}
+                        <small class="text-muted">{{ search_info }}</small>
+                    {% endif %}
+                    {% if category %}
+                        <span class="badge badge-dark">{{ category }}</span>
+                    {% endif %}
+                    {% if tag %}
+                        <span class="badge badge-dark"><i class="bi bi-tag-fill"></i>{{ tag }} ({{ tag.post_set.count }})</span>
+                    {% endif %}
+                </h1>
+                {% if post_list.exists %}
+                    <!-- Blog post-->
+                    {% for p in post_list %}
+                    <div class="card mb-4" id="post-{{ p.pk }}">
+                        {% if p.head_image %}
+                            <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p }} head_image" style="height:400px; object-fit: cover;"/>
+                        {% else %}
+                            <img class="card-img-top" src="https://picsum.photos/seed/{{p.pk}}/750/400" alt="random_image" />
+
+                        {% endif %}
+                        <div class="card-body">
+                            {% if p.category %}
+                                <span class="badge rounded-pill text-bg-dark float-end">{{ p.category }}</span>
+                            {% else %}
+                                <span class="badge rounded-pill text-bg-dark float-end">미분류</span>
+                            {% endif %}
+                            <h4 class="card-title"><a href="{{ p.get_absolute_url }}" class="text-decoration-none">{{ p.title }}</a></h4>
+                            <h5 class="text-muted">{{ p.hook_text }}</h5>
+                            <p class="card-text">{{ p.content | truncatechars_html:45 | safe }}</p>
+                            {% if p.tags.exists %}
+                                <i class="bi bi-tags-fill"></i>
+                                {% for tag in p.tags.iterator %}
+                                    <a href="{{ tag.get_absolute_url }}"><span class="badge text-black-50">{{ tag }}</span></a>
+                                {% endfor %}
+                                <br>
+                                <br>
+                            {% endif %}
+                            <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read More!</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Posted on {{ p.created_at|date:"D d M Y" }} {{ p.created_at|time:"H:i" }} by
+                            <a href="#!" class="text-decoration-none">{{ p.author | upper }}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <h3>아직 게시물이 없습니다.</h3>
+                {% endif %}
+
+                <!-- pagination -->
+                <nav aria-label="Page navigation example" style="margin-top: 50px;">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="/blog/?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled" style="display:none"></li>
+                        {% endif %}
+
+                        {% for page in page_obj.paginator.page_range %}
+                            {% if page_obj.number == forloop.counter %}
+                                <li class="page-item disabled">
+                                    <a class="page-link bg-light" href="{{ request.path }}?page={{page}}">{{ page }}</a>
+                                </li>
+                                {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ request.path }}?page={{page}}">{{ page }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="/blog/?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled" style="display:none"></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                
+            </div>
+            {% include 'side_widget.html' %}
+        </div>
+    </div>
+{% endblock %}

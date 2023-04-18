@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<!-- static file load -->
+{% load static %}
+
+<!-- crispy_forms bootstrap5 -->
+{% load crispy_forms_tags %}
+
+<!-- title in head tag -->
+{% block head_title %}Create Post - Blog{% endblock %}
+
+
+{% block main_area %}
+    <div class="container px-5">
+        <div class="row">
+            <div class="my-3 col-lg-12">
+                <h1>Posting</h1>
+                <hr>
+                <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                    <table>
+                        {{ form | crispy }}
+                        <div id="div_id_tags_str">
+                            <label for="id_tags_str">Tags:</label>
+                            <input type="text" name="tags_str" id="id_tags_str" class="textinput form-control">
+                            <small>&nbsp;&nbsp;태그는 ';'로 구분해 주세요.</small>
+                        </div>
+                        <br>
+                    </table>
+                    <button type="submit" class="btn btn-primary float-end">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

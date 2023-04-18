@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+<!-- static file load -->
+{% load static %}
+
+<!-- crispy_forms bootstrap5 -->
+{% load crispy_forms_tags %}
+
+<!-- title in head tag -->
+{% block head_title %}Edit Comment - Blog{% endblock %}
+
+
+{% block main_area %}
+    <div class="container">
+        <h1>Edit Comment</h1>
+        <hr>
+        <form method="post" id="comment-form">{% csrf_token %}
+            {{ form | crispy }}
+            <br>
+            <button type="submit" class="btn btn-primary float-dark">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
