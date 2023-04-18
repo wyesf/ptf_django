@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+<!-- static file load -->
+{% load static %}
+
+<!-- crispy_forms bootstrap5 -->
+
+<!-- title in head tag -->
+{% block title %} Dashboard {% endblock %}
+
+<!-- contents part in body tag -->
+{% block main_area %}
+<div class="container px-5 my-5">
+    <h1 class="fw-bold mb-3">Chart</h1>
+    <p><img src="{% static 'images/img.jpg' %}" alt="이미지" class="img-fluid"></p>
+</div>
+{% endblock %}

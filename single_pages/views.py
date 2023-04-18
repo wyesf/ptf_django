@@ -18,3 +18,10 @@ def contact(request) :
         request,
         'single_pages/contact.html'
     )
+
+def projects(request) :
+    return render(
+        request,
+        'single_pages/projects.html',
+    )
+    
