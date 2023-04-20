@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',  #google sign
-    # 'allauth.socialaccount.providers.kakao',  #kakao sign
+    'allauth.socialaccount.providers.kakao',  #kakao sign
 ]
 
 MIDDLEWARE = [

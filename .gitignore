@@ -134,3 +134,4 @@ ptf_venv/
 migrations/
 _media/
 note/
+data_last/

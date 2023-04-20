@@ -48,7 +48,7 @@
                             {% else %}
                                 <span class="badge rounded-pill text-bg-dark float-end">미분류</span>
                             {% endif %}
-                            <h4 class="card-title"><a href="{{ p.get_absolute_url }}" class="text-decoration-none">{{ p.title }}</a></h4>
+                            <h4 class="card-title"><a href="{{ p.get_absolute_url }}" class="text-decoration-none text-black fw-semibold">{{ p.title }}</a></h4>
                             <h5 class="text-muted">{{ p.hook_text }}</h5>
                             <p class="card-text">{{ p.content | truncatechars_html:45 | safe }}</p>
                             {% if p.tags.exists %}

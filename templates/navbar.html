@@ -23,6 +23,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <!-- <li><a class="dropdown-item" href="/accounts/logout/">Sign Out <i class="bi bi-door-close"></i></a></li> -->
                             <li><a class="dropdown-item" href="/accounts/logout/">Sign Out <i class="bi bi-door-close"></i></a></li>
+                            <li><a class="dropdown-item" href="/accounts/password/change/">Change PW <i class="bi bi-door-close"></i></a></li>
                         </ul>
                     </li>
                   {% else %}
@@ -52,7 +53,8 @@
         </div>
         <div class="modal-body d-flex flex-column">
             <a href="{% provider_login_url 'google' %}" class="btn btn-outline-secondary btn-lg mb-1" role="button" ><i class="bi bi-google"></i> Sign in with Google</a>
-            <a href="/accounts/login/" class="btn btn-outline-secondary btn-lg mb-1" role="button" ><i class="bi bi-envelope-at"></i> Sign in with Username</a>
+            <a href="{% provider_login_url 'kakao' %}" class="btn btn-outline-secondary btn-lg mb-1" role="button" ><i class="bi bi-line"></i> Sign in with Kakao</a>
+            <a href="/accounts/login/" class="btn btn-outline-secondary btn-lg mb-1" role="button" ><i class="bi bi-person-add"></i> Sign in with Username</a>
             <a href="/accounts/signup/" class="btn btn-outline-secondary btn-lg" role="button" ><i class="bi bi-envelope-at"></i> Sign up with E-mail</a>
         </div>
         <div class="modal-footer">
