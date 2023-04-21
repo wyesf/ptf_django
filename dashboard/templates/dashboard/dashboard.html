@@ -11,77 +11,152 @@
 
 <!-- contents part in body tag -->
 {% block main_area %}
-  <div class="container px-5 my-5">
-      <h1 class="fw-bold mb-3">Chart</h1>
 
-      <section class="row">
-          <div>
-            <canvas id="opexChart" style="height: 500px;"></canvas>
-          </div>
-      </section>
+
+<div class="container px-5 my-5">
+  <h1 class="fw-bold mb-3" id="chartT">서울시 지역구 공무원 최다 방문수 식당</h1>
+
+
+  <!-- Button trigger modal -->
+  <div class="row mb-5">
+    <div class="col">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#yongsanG">
+        용산구
+      </button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#seochoG">
+        서초구
+      </button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#yeongdeungpoG">
+        영등포구
+      </button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#jongnoG">
+        종로구
+      </button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#jungG">
+        중구
+      </button>
+    </div>
   </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-  const ctx = document.getElementById('opexChart');
-  // chart data setup
-  const labels = [
-  {% for od in opex_datas %}
-    '{{ od.restaurant }}',
-  {% endfor %}
-  ];
-  const priceData = [
-  {% for od in opex_datas %}
-    {{ od.name_count }},
-  {% endfor %}
-  ];
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: '서울시 지역구 공무원 최다 방문수 식당',
-      data: priceData,
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(201, 203, 207, 0.2)'
-      ],
-      borderColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 159, 64)',
-        'rgb(255, 205, 86)',
-        'rgb(75, 192, 192)',
-        'rgb(54, 162, 235)',
-        'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)'
-      ],
-      borderWidth: 1
-    }]
-  };
 
-  // chart configration setup
-  const config = {
-    type: 'bar',
-    data: data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        }
-      },
-      responsive : true,
-      responsiveAnimarionDuration : 2,
-      maintainAspectRatio : false,
-    },
-  };
 
-  // chart object
-  // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
-  new Chart(ctx, config)
-  </script>
-  
+
+<!-- Modal -->
+<div class="modal fade" id="yongsanG" tabindex="-1" aria-labelledby="yongsanLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="yongsanLabel">용산구</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id="opexChart"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="seochoG" tabindex="-1" aria-labelledby="seochoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="seochoLabel">서초구</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id="opexChart2"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="yeongdeungpoG" tabindex="-1" aria-labelledby="yeongdeungpoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="yeongdeungpoLabel">영등포구</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id="opexChart3"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="jongnoG" tabindex="-1" aria-labelledby="jongnoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="jongnoLabel">종로구</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id="opexChart4"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="jungG" tabindex="-1" aria-labelledby="jungLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="jungLabel">중구</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="my-5">
+          <canvas id="opexChart5"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% include 'dashboard/yongsan.html' %}
+{% include 'dashboard/seocho.html' %}
+{% include 'dashboard/jongno.html' %}
+{% include 'dashboard/yeongdeungpo.html' %}
+{% include 'dashboard/jung.html' %}
+
 
 {% endblock %}

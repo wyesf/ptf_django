@@ -4,13 +4,39 @@ from django.db.models import Count
 
 # Create your views here.
 def dashboard(request) :
-        
-    opex_datas = Opexseoul.objects.values("restaurant").annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:6]
-    # print(opex_datas)
-    for data in opex_datas:
-        print(data)
 
-        return render(request, "dashboard/dashboard.html",{"opex_datas":opex_datas})
+    # 용산 / 중구 / 종로 / 영등포 / 서초
+    seocho = Opexseoul.objects.filter(borough='서초구').values("restaurant").annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:6]
+    yongsan = Opexseoul.objects.filter(borough='용산구').values("restaurant").annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:6]
+    jung = Opexseoul.objects.filter(borough='중구').values("restaurant").annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:6]
+    jongno = Opexseoul.objects.filter(borough='종로구').values("restaurant").annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:6]
+    yeongdeungpo = Opexseoul.objects.filter(borough='영등포구').values("restaurant").annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:6]
+
+
+    test = {
+        "seocho":seocho,
+        "yongsan":yongsan,
+        "jung":jung,
+        "jongno":jongno,
+        "yeongdeungpo":yeongdeungpo,
+    }
+
+
+    return render(request, "dashboard/dashboard.html",test)
+
+
+
+
+    # a = {'borough': "서초구"}
+
+    
+    # if a in opex_datas :
+
+    #     # print(opex_datas)
+    #     for data in opex_datas:
+    #         print(data)
+
+            # return render(request, "dashboard/dashboard.html",{"opex_datas":opex_datas})
 
 
 

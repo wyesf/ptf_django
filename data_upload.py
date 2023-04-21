@@ -19,8 +19,7 @@ from dashboard.models import Opexseoul
 CSV_PATH='./dashboard/datas/data_last/yeongdeungpo/yeongdeungpo.csv'
 
 with open(CSV_PATH, 'r',  encoding='utf-8') as file: 
-  data_rows = csv.reader(file, skipinitialspace=True) 
-  next(data_rows, None)
+  data_rows = csv.reader(file) 
 
   # print(data_rows)
   # print(list(data_rows))
@@ -38,7 +37,7 @@ with open(CSV_PATH, 'r',  encoding='utf-8') as file:
       if "스타벅스" not in row[1] and "투썸" not in row[1] and "할리스" not in row[1] and "폴바셋" not in row[1] and "정관장" not in row[1] and "파리크라상" not in row[1] and "마트" not in row[1] and "이디야" not in row[1] and "커피" not in row[1] and "맘스터치" not in row[1] and "카페" not in row[1] :
         # print(row)
 
-        Opexseoul.objects.create(  #만약에 filter 중복(cook_name)이 있다면 update, 없다면 create
+        Opexseoul.objects.create( 
           
           regDate = row[0],
           restaurant = row[1],
