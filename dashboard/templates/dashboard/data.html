@@ -1,0 +1,742 @@
+<script>
+
+/************************ yongsan *****************************/
+// 윈도우 돔 불러오는 함수
+  window.onload = function () {
+    yongsan()
+    count1()
+    yongsanPie()
+    
+  }
+  
+  
+  function yongsan(x) {
+    
+    if(window.chartObj != undefined){
+            window.chartObj.destroy();
+        }
+
+        console.log(x)
+
+    const ctx = document.getElementById('opexChart');
+      // chart data setup
+    const labels = [
+      {% for od in yongsan %}
+        '{{ od.restaurant }}',
+      {% endfor %}
+      ];
+
+    const priceData = [
+      {% for od in yongsan %}
+        {{ od.name_count }},
+        {% endfor %}
+      ];
+      const data = {
+        labels: labels,
+      datasets: [{
+        label: '서울특별시 용산구 공무원 최다 방문수 식당',
+        data: priceData,
+        fill: false,
+        borderColor: [
+          '#1e30f3',
+        ],
+        pointRadius:10,
+        tension: 0,
+      }]
+    };
+    
+    
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+          y: {
+            stacked: true,
+            // beginAtZero: true,
+          }
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      }
+    };
+
+    // chart object
+    // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+    window.chartObj = new Chart(ctx, config)  
+        
+    
+  }
+
+  function counter1($counter, max) {
+    let now = max;
+
+    const handle1 = setInterval(() => {
+        $counter.innerHTML = Math.ceil(max - now);
+
+        // 목표수치에 도달하면 정지
+        if (now < 1) {
+          clearInterval(handle1);
+        }
+
+        // 증가되는 값이 계속하여 작아짐
+        const step = now / 10;
+
+        // 값을 적용시키면서 다음 차례에 영향을 끼침
+        now -= step;
+      }, 50);
+  }
+
+  function count1() {
+      // 카운트를 적용시킬 요소
+      const $counter = document.querySelector(".cnt1");
+
+      // 목표 수치
+
+      const max = 9200;
+
+      setTimeout(() => counter1($counter, max), 700);
+    }
+
+
+
+/************************ jongno *****************************/
+  function jongno(x) {
+    if(window.chartObj != undefined){
+					window.chartObj.destroy();
+				}
+
+    // chart data setup
+    const ctx3 = document.getElementById('opexChart3');
+    const labels3 = [
+      {% for od in jongno %}
+        '{{ od.restaurant }}',
+      {% endfor %}
+      ];
+
+    const priceData3 = [
+      {% for od in jongno %}
+        {{ od.name_count }},
+      {% endfor %}
+      ];
+    const data3 = {
+      labels: labels3,
+      datasets: [{
+        label: '서울특별시 종로구 공무원 최다 방문수 식당',
+        data: priceData3,
+        fill: false,
+        borderColor: [
+          '#1e30f3',
+        ],
+        pointRadius:10,
+        tension: 0,
+      }]
+    };
+
+    const config3 = {
+      type: 'line',
+      data: data3,
+      options: {
+        scales: {
+          y: {
+            stacked: true,
+            // beginAtZero: true,
+          }
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      }
+    };
+
+    // chart object
+    // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+    window.chartObj = new Chart(ctx3, config3)
+
+  }
+
+  function counter2 ($counter, max) {
+      let now = max;
+
+      const handle2 = setInterval(() => {
+          $counter.innerHTML = Math.ceil(max - now);
+
+          // 목표수치에 도달하면 정지
+          if (now < 1) {
+            clearInterval(handle2);
+          }
+
+          // 증가되는 값이 계속하여 작아짐
+          const step = now / 10;
+
+          // 값을 적용시키면서 다음 차례에 영향을 끼침
+          now -= step;
+        }, 50);
+      }
+
+  function count2() {
+    console.log("모야")
+    // 카운트를 적용시킬 요소
+    const $counter = document.querySelector(".cnt2");
+
+    // 목표 수치
+
+    const max = 8700;
+
+    setTimeout(() => counter2($counter, max), 700);
+  }
+
+
+
+  /************************ yeongdeungpo *****************************/
+  function yeongdeungpo(x) {
+    if(window.chartObj != undefined){
+					window.chartObj.destroy();
+				}
+
+    // chart data setup
+    const ctx4 = document.getElementById('opexChart4');
+    const labels4 = [
+        {% for od in yeongdeungpo %}
+          '{{ od.restaurant }}',
+        {% endfor %}
+      ];
+
+    const priceData4 = [
+        {% for od in yeongdeungpo %}
+          {{ od.name_count }},
+        {% endfor %}
+      ];
+    const data4 = {
+      labels: labels4,
+      datasets: [{
+        label: '서울특별시 영등포구 공무원 최다 방문수 식당',
+        data: priceData4,
+        fill: false,
+        borderColor: [
+          '#1e30f3',
+        ],
+        pointRadius:10,
+        tension: 0,
+      }]
+    };
+
+    const config4 = {
+      type: 'line',
+      data: data4,
+      options: {
+        scales: {
+          y: {
+            stacked: true,
+            // beginAtZero: true,
+          }
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      }
+    };
+
+    // chart object
+    // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+    window.chartObj = new Chart(ctx4, config4)
+
+  }
+
+  function counter3 ($counter, max) {
+      let now = max;
+
+      const handle3 = setInterval(() => {
+          $counter.innerHTML = Math.ceil(max - now);
+
+          // 목표수치에 도달하면 정지
+          if (now < 1) {
+            clearInterval(handle3);
+          }
+
+          // 증가되는 값이 계속하여 작아짐
+          const step = now / 10;
+
+          // 값을 적용시키면서 다음 차례에 영향을 끼침
+          now -= step;
+        }, 50);
+      }
+
+  function count3() {
+    // 카운트를 적용시킬 요소
+    const $counter = document.querySelector(".cnt3");
+
+    // 목표 수치
+
+    const max = 9600;
+
+    setTimeout(() => counter3($counter, max), 700);
+  }
+
+
+
+  /************************ jung *****************************/
+  function jung(x) {
+    if(window.chartObj != undefined){
+					window.chartObj.destroy();
+				}
+
+    // chart data setup
+    const ctx5 = document.getElementById('opexChart5');
+    const labels5 = [
+        {% for od in jung %}
+          '{{ od.restaurant }}',
+        {% endfor %}
+      ];
+
+    const priceData5 = [
+        {% for od in jung %}
+          {{ od.name_count }},
+        {% endfor %}
+      ];
+    const data5 = {
+      labels: labels5,
+      datasets: [{
+        label: '서울특별시 영등포구 공무원 최다 방문수 식당',
+        data: priceData5,
+        fill: false,
+        borderColor: [
+          '#1e30f3',
+        ],
+        pointRadius:10,
+        tension: 0,
+      }]
+    };
+
+    const config5 = {
+      type: 'line',
+      data: data5,
+      options: {
+        scales: {
+          y: {
+            stacked: true,
+            // beginAtZero: true,
+          }
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      }
+    };
+
+    // chart object
+    // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+    window.chartObj = new Chart(ctx5, config5)
+
+  }
+
+  function counter4 ($counter, max) {
+      let now = max;
+
+      const handle4 = setInterval(() => {
+          $counter.innerHTML = Math.ceil(max - now);
+
+          // 목표수치에 도달하면 정지
+          if (now < 1) {
+            clearInterval(handle4);
+          }
+
+          // 증가되는 값이 계속하여 작아짐
+          const step = now / 10;
+
+          // 값을 적용시키면서 다음 차례에 영향을 끼침
+          now -= step;
+        }, 50);
+      }
+
+  function count4() {
+    // 카운트를 적용시킬 요소
+    const $counter = document.querySelector(".cnt4");
+
+    // 목표 수치
+
+    const max = 9900;
+
+    setTimeout(() => counter4($counter, max), 700);
+  }
+
+
+
+
+  /************************ seocho *****************************/
+  function seocho(x) {
+    if(window.chartObj != undefined){
+					window.chartObj.destroy();
+				}
+
+    // chart data setup
+    const ctx2 = document.getElementById('opexChart2');
+    const labels2 = [
+        {% for od in seocho %}
+          '{{ od.restaurant }}',
+        {% endfor %}
+      ];
+
+    const priceData2 = [
+        {% for od in seocho %}
+          {{ od.name_count }},
+        {% endfor %}
+      ];
+    const data2 = {
+      labels: labels2,
+      datasets: [{
+        label: '서울특별시 서초구 공무원 최다 방문수 식당',
+        data: priceData2,
+        fill: false,
+        borderColor: [
+          '#1e30f3',
+        ],
+        pointRadius:10,
+        tension: 0,
+      }]
+    };
+
+    const config2 = {
+      type: 'line',
+      data: data2,
+      options: {
+        scales: {
+          y: {
+            stacked: true,
+            // beginAtZero: true,
+          }
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      }
+    };
+
+    // chart object
+    // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+    window.chartObj = new Chart(ctx2, config2)
+
+  }
+
+  function counter5 ($counter, max) {
+      let now = max;
+
+      const handle5 = setInterval(() => {
+          $counter.innerHTML = Math.ceil(max - now);
+
+          // 목표수치에 도달하면 정지
+          if (now < 1) {
+            clearInterval(handle5);
+          }
+
+          // 증가되는 값이 계속하여 작아짐
+          const step = now / 10;
+
+          // 값을 적용시키면서 다음 차례에 영향을 끼침
+          now -= step;
+        }, 50);
+      }
+
+  function count5() {
+    // 카운트를 적용시킬 요소
+    const $counter = document.querySelector(".cnt5");
+
+    // 목표 수치
+
+    const max = 9300;
+
+    setTimeout(() => counter5($counter, max), 700);
+  }
+
+</script>
+
+
+
+<!-- /********************* pi ***********************/ -->
+<script>
+  
+  var myPieChart=null;
+  /********************* yongsanPie ***********************/
+  function yongsanPie(x){
+    
+    const ctx11 = document.getElementById('myChart11');
+    
+    
+    let data11 = {
+      labels: [
+        '발루토피비',
+        '쏭타이',
+        '명동교자',
+        '댓잎갈비',
+        '무진장',
+        '이태원곰탕',
+      ],
+      datasets: [{
+        label: 'count',
+        data: [16000, 9000, 13000, 11000, 7000, 13000],
+        backgroundColor: [
+          'rgb(211, 214, 219)',
+          'rgb(136, 142, 192)',
+          'rgb(44, 65, 140)',
+          'rgb(109, 130, 153)',
+          'rgb(48, 56, 65)',
+          'rgb(189, 205, 214)',
+        ],
+        cutout: '80%',
+        borderWidth: 1,
+        hoverOffset: 4
+      }]
+    };
+    if(myPieChart!=null){
+        myPieChart.destroy();
+    }
+    // Get the context of the canvas element we want to select
+    myPieChart = new Chart(ctx11, {
+        type: 'pie',
+        data: data11,
+        options: {
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: {
+                usePointStyle: true,
+              },
+            },
+          },
+          responsive: true,
+          responsiveAnimarionDuration: 2,
+          maintainAspectRatio: false,
+        },
+      });
+}
+
+
+/********************* jongnoPie ***********************/
+function jongnoPie(x){
+  console.log(x)
+  const ctx22 = document.getElementById('myChart33');
+  
+      
+  let data22 = {
+    labels: [
+        '사조참치',
+        '피맛골화로구이',
+        '나무와벽돌',
+        '광화문등심',
+        '경성치킨',
+        '해물 신의한수',
+      ],
+      datasets: [{
+        label: 'count',
+        data: [25000, 15000, 13000, 10000, 5000, 13000],
+        backgroundColor: [
+          'rgb(211, 214, 219)',
+          'rgb(136, 142, 192)',
+          'rgb(44, 65, 140)',
+          'rgb(109, 130, 153)',
+          'rgb(48, 56, 65)',
+          'rgb(189, 205, 214)',
+        ],
+        cutout: '80%',
+        borderWidth: 1,
+        hoverOffset: 4
+      }]
+    };
+    
+
+    if(myPieChart!=null){
+          myPieChart.destroy();
+      }
+      myPieChart = new Chart(ctx22, {
+      type: 'pie',
+      data: data22,
+      options: {
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+            },
+          },
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      },
+    });
+}
+
+
+
+/********************* yeongdeungpoPie ***********************/
+function yeongdeungpoPie(x){
+  console.log(x)
+  const ctx33 = document.getElementById('myChart44');
+  
+      
+  let data33 = {
+    labels: [
+        '원양참치',
+        '이도',
+        '한성삼계탕',
+        '마라도아구찜',
+        '복먹고복받고',
+        '영등포불닭',
+      ],
+      datasets: [{
+        label: 'count',
+        data: [16000, 9000, 13000, 11000, 7000, 13000],
+        backgroundColor: [
+          'rgb(211, 214, 219)',
+          'rgb(136, 142, 192)',
+          'rgb(44, 65, 140)',
+          'rgb(109, 130, 153)',
+          'rgb(48, 56, 65)',
+          'rgb(189, 205, 214)',
+        ],
+        cutout: '80%',
+        borderWidth: 1,
+        hoverOffset: 4
+      }]
+    };
+    
+
+    if(myPieChart!=null){
+          myPieChart.destroy();
+      }
+      myPieChart = new Chart(ctx33, {
+      type: 'pie',
+      data: data33,
+      options: {
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+            },
+          },
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      },
+    });
+}
+
+
+
+/********************* jungPie ***********************/
+function jungPie(x){
+  console.log(x)
+  const ctx44 = document.getElementById('myChart55');
+  
+      
+  let data44 = {
+    labels: [
+        '만리향',
+        '유빈왕돈까스',
+        '이멜다분식',
+        '윤가네의정부부대찌개',
+        '오발탄',
+        'VIPS 제일제당센터점',
+      ],
+      datasets: [{
+        label: 'count',
+        data: [25000, 15000, 13000, 10000, 5000, 13000],
+        backgroundColor: [
+          'rgb(211, 214, 219)',
+          'rgb(136, 142, 192)',
+          'rgb(44, 65, 140)',
+          'rgb(109, 130, 153)',
+          'rgb(48, 56, 65)',
+          'rgb(189, 205, 214)',
+        ],
+        cutout: '80%',
+        borderWidth: 1,
+        hoverOffset: 4
+      }]
+    };
+    
+
+    if(myPieChart!=null){
+          myPieChart.destroy();
+      }
+      myPieChart = new Chart(ctx44, {
+      type: 'pie',
+      data: data44,
+      options: {
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+            },
+          },
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      },
+    });
+}
+
+
+
+
+/********************* seochoPie ***********************/
+function seochoPie(x){
+  console.log(x)
+  const ctx55 = document.getElementById('myChart22');
+  
+      
+  let data55 = {
+    labels: [
+        '우아한 형제들',
+        '이삭토스트',
+        '신수사',
+        '명선헌',
+        '난랑',
+        '홍팥집',
+      ],
+      datasets: [{
+        label: 'count',
+        data: [25000, 15000, 13000, 10000, 5000, 13000],
+        backgroundColor: [
+          'rgb(211, 214, 219)',
+          'rgb(136, 142, 192)',
+          'rgb(44, 65, 140)',
+          'rgb(109, 130, 153)',
+          'rgb(48, 56, 65)',
+          'rgb(189, 205, 214)',
+        ],
+        cutout: '80%',
+        borderWidth: 1,
+        hoverOffset: 4
+      }]
+    };
+    
+
+    if(myPieChart!=null){
+          myPieChart.destroy();
+      }
+      myPieChart = new Chart(ctx55, {
+      type: 'pie',
+      data: data55,
+      options: {
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              usePointStyle: true,
+            },
+          },
+        },
+        responsive: true,
+        responsiveAnimarionDuration: 2,
+        maintainAspectRatio: false,
+      },
+    });
+}
+
+</script>

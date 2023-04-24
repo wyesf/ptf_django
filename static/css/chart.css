@@ -1,0 +1,142 @@
+ul.ulmg {
+  margin-top: 140px !important;
+}
+
+
+#chartT {
+  font-family: 'SCoreDream' !important;
+  font-weight: 700 !important; 
+  font-style: normal !important; 
+  font-size: 35px;
+  color: #555;
+}
+
+.chartB {
+  font-family: 'SCoreDream' !important;
+  font-weight: 600 !important; 
+  font-style: normal !important; 
+  font-size: 20px;
+  border-radius: 50%;
+  background-color: rgb(206, 207, 247);
+  color: #555;
+}
+
+.view-bubble {
+  position: relative;
+  background-color: #e6e6e6;
+  padding: 40px;
+  border-radius: 15px;
+  height: 680px;
+  margin-left: 20px;
+}
+
+
+button {
+  border: none;
+  background: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+
+
+.vb1::before {
+  content: "";
+  position: absolute;
+  top: 27%;
+  left: -40px;
+  transform: translateY(-50%);
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent #e6e6e6 transparent transparent;
+}
+.vb3::before {
+  content: "";
+  position: absolute;
+  top: 39% !important;
+  left: -40px;
+  transform: translateY(-50%);
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent #e6e6e6 transparent transparent;
+}
+.vb4::before {
+  content: "";
+  position: absolute;
+  top: 51%;
+  left: -40px;
+  transform: translateY(-50%);
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent #e6e6e6 transparent transparent;
+}
+.vb5::before {
+  content: "";
+  position: absolute;
+  top: 63%;
+  left: -40px;
+  transform: translateY(-50%);
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent #e6e6e6 transparent transparent;
+}
+.vb2::before {
+  content: "";
+  position: absolute;
+  top: 75%;
+  left: -40px;
+  transform: translateY(-50%);
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent #e6e6e6 transparent transparent;
+}
+
+
+
+
+
+
+.cntBox {
+  background-color: #ddd;
+  margin-top: 30px;
+  width: 350px;
+  height: 150px;
+  padding: 15px 20px;
+}
+
+.cnt1,
+.cnt2,
+.cnt3,
+.cnt4,
+.cnt5 {
+  /*  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  top: 0;
+  margin-top: 10px;
+
+}
+
+.cntTitle {
+  font-weight: 900;
+  font-size: 16px;
+  color: blue;
+}
+
+
+
+
+.fmbox {
+  background-color: cadetblue;
+  width: 70px;
+  height: 150px;
+}
+
+/* ----------- */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+

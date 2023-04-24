@@ -104,19 +104,11 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-family: 'Do Hyeon', sans-serif;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-family: 'Rock Salt', cursive;
-  font-family: 'Sedgwick Ave Display', cursive;
 }
 
 #logo {
-  font-family: 'Rock Salt', cursive !important;
+  font-family: 'Sedgwick Ave Display', cursive;
   font-size: 30px;
-}
-
-#chartT {
-  font-family: 'Do Hyeon', sans-serif !important;
 }
 
 hr {
@@ -3657,13 +3649,13 @@ textarea.form-control-lg {
 }
 
 .nav-tabs {
-  --bs-nav-tabs-border-width: 1px;
-  --bs-nav-tabs-border-color: #dee2e6;
-  --bs-nav-tabs-border-radius: 0.375rem;
-  --bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6;
+  /* --bs-nav-tabs-border-width: 1px; */
+  /* --bs-nav-tabs-border-color: #dee2e6; */
+  --bs-nav-tabs-border-radius: 50%;
+  /* --bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e6; */
   --bs-nav-tabs-link-active-color: #495057;
-  --bs-nav-tabs-link-active-bg: #fff;
-  --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff;
+  --bs-nav-tabs-link-active-bg: #e6e6e6;
+  /* --bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #fff; */
   border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
 }
 .nav-tabs .nav-link {

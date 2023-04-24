@@ -9,154 +9,138 @@
 <!-- title in head tag -->
 {% block title %} Dashboard {% endblock %}
 
+<!-- css -->
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/chart.css' %}">
+{% endblock %}
+
 <!-- contents part in body tag -->
 {% block main_area %}
 
 
-<div class="container px-5 my-5">
-  <h1 class="fw-bold mb-3" id="chartT">서울시 지역구 공무원 최다 방문수 식당</h1>
+<div class="container px-5 my-4 d-flex justify-content-center">
+  <!-- <h1 class="fw-bold mb-4 text-center" id="chartT">서울시 지역구 공무원 최다 방문수 식당</h1> -->
 
 
-  <!-- Button trigger modal -->
-  <div class="row mb-5">
-    <div class="col">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#yongsanG">
-        용산구
-      </button>
-    </div>
-    <div class="col">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#seochoG">
-        서초구
-      </button>
-    </div>
-    <div class="col">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#yeongdeungpoG">
-        영등포구
-      </button>
-    </div>
-    <div class="col">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#jongnoG">
-        종로구
-      </button>
-    </div>
-    <div class="col">
-      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#jungG">
-        중구
-      </button>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="yongsanG" tabindex="-1" aria-labelledby="yongsanLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="yongsanLabel">용산구</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <canvas id="opexChart"></canvas>
+  <div class="d-flex mt-2 col-lg-9">
+    <ul class="nav nav-tabs flex-column me-4 flex-shrink-1 ulmg" id="myTab" role="tablist" aria-orientation="vertical">
+      <li class="nav-item chartB my-3" role="presentation">
+        <button class="nav-link active" id="ys-tab" data-bs-toggle="tab" data-bs-target="#tab-ys-pane" type="button" role="tab" aria-controls="v-tab-ys" aria-selected="true" onclick="yongsan('yongsan'); yongsanPie('yongsan'); count1()">1</button>
+      </li>
+      <li class="nav-item chartB my-3" role="presentation">
+        <button class="nav-link" id="jr-tab" data-bs-toggle="tab" data-bs-target="#tab-jr-pane" type="button" role="tab" aria-controls="v-tab-jr" aria-selected="false" onclick="jongno('jongno'); jongnoPie('jongno'); count2()">2</button>
+      </li>
+      <li class="nav-item chartB my-3" role="presentation">
+        <button class="nav-link" id="ydp-tab" data-bs-toggle="tab" data-bs-target="#tab-ydp-pane" type="button" role="tab" aria-controls="v-tab-ydp" aria-selected="false" onclick="yeongdeungpo('yeongdeungpo'); yeongdeungpoPie('yeongdeungpo'); count3()">3</button>
+      </li>
+      <li class="nav-item chartB my-3" role="presentation">
+        <button class="nav-link" id="j-tab" data-bs-toggle="tab" data-bs-target="#tab-j-pane" type="button" role="tab" aria-controls="v-tab-j" aria-selected="false" onclick="jung('jung'); jungPie('jung'); count4()">4</button>
+      </li>
+      <li class="nav-item chartB my-3" role="presentation">
+        <button class="nav-link" id="sc-tab" data-bs-toggle="tab" data-bs-target="#tab-sc-pane" type="button" role="tab" aria-controls="v-tab-sc" aria-selected="false" onclick="seocho('seocho'); seochoPie('seocho'); count5()">5</button>
+      </li>
+    </ul>
+    <div class="w-100">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab-ys-pane" role="tabpanel" aria-labelledby="ys-tab" tabindex="0">
+          <div class="view-bubble vb1">
+            <div class="my-1" style="height: 400px;"style="position: relative; height:40vh; width:80vw">
+              <canvas id="opexChart"></canvas>
+            </div>
+            <div class="d-flex row">
+              <div class="cntBox col">
+                <span class="cntTitle">Average Price  &#9654;	</span>
+                <div class="cnt1">0</div>
+              </div>
+              <!-- <div class="col fmbox" style="width: 18rem;">
+                  <p style="font-weight: 400; font-family: 'SCoreDream'; font-size: 12px;">2022년 오늘<br>업무추진비 내역은?</p>
+                  <span style="font-size: 70px; font-weight: 700;">4</span>
+                  <span style="position: absolute; top: 95px; right: 35px; font-weight: 900;">O</span>
+                  <hr>
+                  <a href="#" class="card-link text-decoration-none text-dark">VIEW</a>
+              </div> -->
+              <div class="col d-flex justify-content-center" style="height: 150px; margin-top: 30px;">
+                <canvas id="myChart11"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-jr-pane" role="tabpanel" aria-labelledby="jr-tab" tabindex="0">
+          <div class="view-bubble vb3">
+              <div class="my-1" style="height: 400px;">
+                <canvas id="opexChart3"></canvas>
+              </div>
+              <div class="d-flex row">
+                <div class="cntBox col">
+                  <span class="cntTitle">Average Price  &#9654;	</span>
+                  <div class="cnt2">0</div>
+                </div>
+                <div class="col d-flex justify-content-center" style="height: 150px; margin-top: 30px;">
+                  <canvas id="myChart33"></canvas>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-ydp-pane" role="tabpanel" aria-labelledby="ydp-tab" tabindex="0">
+          <div class="view-bubble vb4">
+              <div class="my-1" style="height: 400px;">
+                <canvas id="opexChart4"></canvas>
+              </div>
+              <div class="d-flex row">
+                <div class="cntBox col">
+                  <span class="cntTitle">Average Price  &#9654;	</span>
+                  <div class="cnt3">0</div>
+                </div>
+                <div class="col d-flex justify-content-center" style="height: 150px; margin-top: 30px;">
+                  <canvas id="myChart44"></canvas>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-j-pane" role="tabpanel" aria-labelledby="j-tab" tabindex="0">
+          <div class="view-bubble vb5">
+              <div class="my-1" style="height: 400px;">
+                <canvas id="opexChart5"></canvas>
+              </div>
+              <div class="d-flex row">
+                <div class="cntBox col">
+                  <span class="cntTitle">Average Price  &#9654;	</span>
+                  <div class="cnt4">0</div>
+                </div>
+                <div class="col d-flex justify-content-center" style="height: 150px; margin-top: 30px;">
+                  <canvas id="myChart55"></canvas>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab-sc-pane" role="tabpanel" aria-labelledby="sc-tab" tabindex="0">
+          <div class="view-bubble vb2">
+              <div class="my-1" style="height: 400px;">
+                <canvas id="opexChart2"></canvas>
+              </div>
+              <div class="d-flex row">
+                <div class="cntBox col">
+                  <span class="cntTitle">Average Price  &#9654;	</span>
+                  <div class="cnt5">0</div>
+                </div>
+                <div class="col d-flex justify-content-center" style="height: 150px; margin-top: 30px;">
+                  <canvas id="myChart22"></canvas>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="seochoG" tabindex="-1" aria-labelledby="seochoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="seochoLabel">서초구</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <canvas id="opexChart2"></canvas>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="yeongdeungpoG" tabindex="-1" aria-labelledby="yeongdeungpoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="yeongdeungpoLabel">영등포구</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <canvas id="opexChart3"></canvas>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="jongnoG" tabindex="-1" aria-labelledby="jongnoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="jongnoLabel">종로구</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div>
-          <canvas id="opexChart4"></canvas>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="jungG" tabindex="-1" aria-labelledby="jungLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="jungLabel">중구</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="my-5">
-          <canvas id="opexChart5"></canvas>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{% include 'dashboard/yongsan.html' %}
-{% include 'dashboard/seocho.html' %}
-{% include 'dashboard/jongno.html' %}
-{% include 'dashboard/yeongdeungpo.html' %}
-{% include 'dashboard/jung.html' %}
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+{% include 'dashboard/data.html' %}
 
 
 {% endblock %}

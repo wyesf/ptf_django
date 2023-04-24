@@ -28,6 +28,6 @@ def projects(request) :
 def toypjt(request) :
     return render(
         request,
-        'single_pages/toy_main.html',
+        'single_pages/toyprj.html',
     )
     

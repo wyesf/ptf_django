@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Opexseoul
-from django.db.models import Count
+from django.db.models import Count, Sum
 
 # Create your views here.
 def dashboard(request) :
@@ -20,6 +20,13 @@ def dashboard(request) :
         "jongno":jongno,
         "yeongdeungpo":yeongdeungpo,
     }
+
+
+# # value
+#     yongsan1 = Opexseoul.objects.filter(borough='용산구').values(Sum('price')).order_by('-sum_price')
+#     test2 = {
+#         "yongsan1":yongsan1
+#     }
 
 
     return render(request, "dashboard/dashboard.html",test)

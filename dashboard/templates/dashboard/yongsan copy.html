@@ -1,0 +1,221 @@
+
+
+
+<script>
+  function yongsan(x){
+    console.log(x)
+
+    const ctx = document.getElementById('opexChart');
+    // chart data setup
+    const labels = [
+    {% for od in yongsan %}
+      '{{ od.restaurant }}',
+    {% endfor %}
+    ];
+  
+    const priceData = [
+    {% for od in yongsan %}
+      {{ od.name_count }},
+    {% endfor %}
+    ];
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: '서울특별시 용산구 공무원 최다 방문수 식당',
+        data: priceData,
+        fill: false,
+        borderColor: [
+          '#1e30f3',
+        ],
+        tension: 0,
+      }]
+    };
+  
+   
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+          scales: {
+              y: {
+                  stacked: true,
+                  // beginAtZero: true,
+              }
+          },
+          responsive : true,
+          responsiveAnimarionDuration : 2,
+          maintainAspectRatio : false,
+      }
+    };
+  
+    // chart object
+    // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+    new Chart(ctx, config)
+  }
+
+  function jongno(x){
+    // chart data setup
+  const ctx3 = document.getElementById('opexChart3');
+  const labels3 = [
+  {% for od in jongno %}
+    '{{ od.restaurant }}',
+  {% endfor %}
+  ];
+  
+  const priceData3 = [
+  {% for od in jongno %}
+    {{ od.name_count }},
+  {% endfor %}
+  ];
+  const data3 = {
+    labels: labels3,
+    datasets: [{
+      label: '서울특별시 종로구 공무원 최다 방문수 식당',
+      data: priceData3,
+      fill: false,
+      borderColor: [
+        '#1e30f3',
+      ],
+      tension: 0,
+    }]
+  };
+  
+  const config3 = {
+    type: 'line',
+    data: data3,
+    options: {
+        scales: {
+            y: {
+                stacked: true,
+                // beginAtZero: true,
+            }
+        },
+        responsive : true,
+        responsiveAnimarionDuration : 2,
+        maintainAspectRatio : false,
+    }
+  };
+  
+  // chart object
+  // new Chart(documentd의_식별_변수, chart configration setup_기본_설정_변수)
+  new Chart(ctx3, config3)
+}
+
+  // if(window.chartObj != undefined){
+	// 				window.chartObj.destroy();
+	// 		}
+  // const counter = ($counter, max) => {
+  // let now = max;
+
+  // const handle = setInterval(() => {
+  //     $counter.innerHTML = Math.ceil(max - now);
+  
+  //     // 목표수치에 도달하면 정지
+  //     if (now < 1) {
+  //     clearInterval(handle1);
+  //     }
+      
+  //     // 증가되는 값이 계속하여 작아짐
+  //     const step = now / 10;
+      
+  //     // 값을 적용시키면서 다음 차례에 영향을 끼침
+  //     now -= step;
+  // }, 50);
+  // }
+
+  // window.onload = () => {
+  // // 카운트를 적용시킬 요소
+  // const $counter = document.querySelector(".cnt");
+  
+  // // 목표 수치
+
+  // const max = 9200;
+  
+  // setTimeout(() => counter($counter, max), 700);
+  // }
+
+</script>
+
+
+<!-- 
+<script>
+  if(window.chartObj != undefined){
+					window.chartObj.destroy();
+			}
+  const counter = ($counter, max) => {
+  let now = max;
+
+  const handle = setInterval(() => {
+      $counter.innerHTML = Math.ceil(max - now);
+  
+      // 목표수치에 도달하면 정지
+      if (now < 1) {
+      clearInterval(handle);
+      }
+      
+      // 증가되는 값이 계속하여 작아짐
+      const step = now / 10;
+      
+      // 값을 적용시키면서 다음 차례에 영향을 끼침
+      now -= step;
+  }, 50);
+  }
+
+  window.onload = () => {
+  // 카운트를 적용시킬 요소
+  const $counter = document.querySelector(".cnt");
+  
+  // 목표 수치
+
+  const max = 9200;
+  
+  setTimeout(() => counter($counter, max), 700);
+  }
+</script> -->
+
+
+
+<script>
+  const ctx11 = document.getElementById('myChart11');
+
+  const config11 = {
+  type: 'pie',
+  data: data,
+};
+
+let data11 = {
+  labels: [
+    '식당',
+    '평균',
+    '가격'
+  ],
+  datasets: [{
+    label: 'count',
+    data: [13000, 8000, 16000],
+    backgroundColor: [
+      'rgb(9, 96, 102)',
+      'rgb(44, 65, 140)',
+      'rgb(51, 115, 255)',
+    ],
+    hoverOffset: 4
+  }]
+};
+
+  new Chart(ctx11, {
+    type: 'pie',
+    data: data11,
+    options: {
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: {
+            usePointStyle: true,
+          },
+        },
+      },
+      responsive : true,
+      responsiveAnimarionDuration : 2,
+      maintainAspectRatio : false,
+    },
+  });
+</script>

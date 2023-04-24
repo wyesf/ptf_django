@@ -14,7 +14,7 @@
     <div class="container px-5">
         <div class="row">
             <!-- Blog entries-->
-            <div class="col-lg-8" id="main_area">
+            <div class="col-lg-9" id="main_area">
                 {% if user.is_authenticated %}
                     {% if user.superuser or user.is_staff %}
                         <a class="btn btn-primary btn-sm float-end mt-5" href="/blog/create_post/" role="button"><i class="bi bi-pencil-square"></i>&nbsp;&nbsp;New Post</a>
