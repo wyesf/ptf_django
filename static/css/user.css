@@ -1,0 +1,409 @@
+/*****************회원가입*********************/
+
+button {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.5;
+  background: none;
+  outline: none;
+}
+
+/* h1 가리기 */
+.n-hidden {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  position: absolute;
+}
+
+/* 바탕 크기 조정 */
+.form-area {
+  max-width: 385px;
+  min-height: 100%;
+  padding: 0 15px 100px 15px;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* 칸칸이 간격 */
+.user .form-group {
+padding: 10px 5px 10px 5px;
+text-align: left;
+}
+
+
+.user-header {
+margin: 60px 0px 60px 0px;	
+}
+
+
+/* 회원가입 */
+.user .text-fontsname {
+text-align: center;
+font-size: 20px;
+}
+
+/* gender 위치 조정 */
+.user .form-group input[type="radio"] {
+display: inline-block;
+text-align: center;
+display: inline-block;
+margin: 0px 100px 0px 5px;
+}
+
+/* 필수입력 조정 */
+.user .form-label .essential {
+display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 100%;
+  background-color: #ff0000;
+  overflow: hidden;
+  text-indent: -9999px;
+  vertical-align: top;
+  margin-left: -2px;
+}
+
+/* 입력칸 조정 */
+.user .d-input {
+width: 100%;
+  height: 50px;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 0px 9px 2px 9px;
+  box-sizing: border-box !important;
+  /* -webkit-transition: border 0.2s ease-in-out;
+  -moz-transition: border 0.2s ease-in-out;
+  -o-transition: border 0.2s ease-in-out; */
+  transition: border 0.2s ease-in-out;
+}
+
+/* 거절 css */
+.user .d-input.input-reject {
+    border-color: #ff0000 !important;
+}
+
+.user .n-validation {
+font-size: 12px;
+  color: #ff0000;
+  margin-top: 7px;
+}
+
+/* 통과 css */
+.user .validation-pass {
+display: block;
+  color: #14aaff;	
+}
+
+/* 회원가입 버튼 조정 */
+.user .d-btn {
+display: block;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #000000;
+  line-height: 47px;
+  box-sizing: border-box;
+  padding: 1px 10px 0 10px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #eee;
+}
+
+.d-btn .disabled {
+border-color: #eee;
+  background-color: #eee;
+  color: #aaaaaa;
+}
+
+.d-btn .btn-primary {
+border-color: #0078ff;
+  background-color: #0078ff;
+}
+
+
+/* 이메일 영역 */
+
+
+#emailDomainList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.n-form-layer.is-active .d-input {
+  background-color: #e5e5e5;
+  border-color: #aaa;
+}
+
+.n-form-layer .layer {
+display: none;
+background-color: #ffffff;
+  left: 0;
+  right: 0;
+  top: 49px;
+  z-index: 10;
+}
+
+.n-form-layer.is-active .layer {
+display: block;
+  border: 1px solid #aaa;
+  border-top: none;
+}
+
+
+.n-form-layer.is-active .layer button {
+width: 100%;
+  font-size: 16px;
+  text-align: left;
+  padding: 12px 0px;
+}
+
+.n-form-layer.is-active .layer button > em {
+  color: #0078ff;
+}
+
+em {
+  font-style: normal;
+}
+
+
+.n-form-layer.is-active .layer button > em {
+  color: #0078ff;
+}
+
+em {
+  font-style: normal;
+}
+
+
+
+
+
+
+/*****************회원가입 성공*********************/
+.joincomplete > img {
+width: 312px;
+height: 312px;
+}
+
+.complete {
+padding: 30px 30px 30px 30px;
+text-align: center;
+font-size: 20px;
+}
+
+
+/******** 로그인 *********/
+
+.login-header .logo a > img, .join-header .logo a > img {
+	width: 300px;
+	height: 150px;
+}
+
+.login-header, .join-header {
+	margin: 76px 0px 60px 0px;
+    text-align: center;
+}
+
+.login-header .logo {
+	text-align: center;
+	margin: 18px 0px -2px 0px;
+}
+
+.inputbox {
+	border: 1px solid #ccc;
+  padding: 15px 10px 14px 10px;
+  height: 50px;
+  margin: 0px auto;
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  color: #000;
+}
+
+.loginbox .id {
+    padding: 0 10px 10px 10px;
+    display: block;
+}
+
+.loginbox .pw {
+    padding: 0 10px 20px 10px;
+    display: block;
+}
+
+.loginbox #failLogin{
+	display: block;
+	padding: 0 10px 20px 10px;
+	font-size: 15px;
+	color: red;
+	
+}
+
+.loginbox .submit {
+	padding: 0 10px 20px 10px;
+    display: block;
+}
+
+.submitBox input {
+	background: #000;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    height: 60px;
+    line-height: 64px;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.loginMenu {
+    margin: 36px 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+ul {
+	display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 20px;
+}
+
+
+.loginbox .loginMenu li a {
+	font-size: 14px;
+    color: #aaa;
+}
+
+.loginbox .loginMenu li {
+	display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin: 4px 0 3px 0;
+}
+
+.loginbox .loginMenu li.idsearch {
+	border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    padding: 0 17.5px 0 19.5px;
+    margin: 4px 18.5px 3px 25.5px;
+}
+
+
+
+
+/****************************************************************/
+/* 회원정보 수정폼 **********************************************/
+/****************************************************************/
+
+
+.container .modify-block {
+	width: calc(100% - 210px);
+    padding: 0;
+    float: right;
+}
+
+
+.form-group .basic-profile > img {
+	width: 345px;
+	height: 345px;
+}
+
+
+.n-btn.btn-default {
+	width: 100%;
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    padding: 12px 9px 2px 9px;
+    margin: 10px 0px;
+    box-sizing: border-box !important;
+    transition: border 0.2s ease-in-out;
+    font-weight: bold;
+}
+
+.n-btn.btn-sm {
+    min-width: 57px;
+    line-height: 30px;
+    padding-top: 0;
+    border: 1px solid #e5e5e5;
+    background-color: #ffffff;
+}
+
+#change-default-image-btn {
+	font-weight: bold;
+}
+
+.pass {
+	margin-bottom: 25px;
+}
+
+.n-btn.btn-lighter {
+    border: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
+    color: #000000;
+}
+
+.n-btn.btn-accent.disabled {
+    border-color: #ccc;
+    background-color: #ccc;
+}
+
+.btn-group {
+	display: none;
+}
+
+.btn-group.is-active {
+	display: block;
+}
+
+.modify-pass {
+	display: none;
+}
+
+.modify-pass.is-active {
+	display: block;
+}
+
+
+#change-profile-image-area {
+	display: none;
+}
+
+.form-group .change-profile > img {
+	width: 345px;
+	height: 345px;
+}
+
+.validation-pass {
+	display: block;
+    color: #14aaff;	
+}
+
+.modify-pass .pass-now p {
+	margin: 10px 0px;
+}
+
+.modify-pass .pass-new p {
+	margin: 10px 0px;
+}

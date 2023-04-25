@@ -31,3 +31,9 @@ def toypjt(request) :
         'single_pages/toyprj.html',
     )
     
+def chartprj(request) :
+    return render(
+        request,
+        'single_pages/chart_project.html',
+    )
+    

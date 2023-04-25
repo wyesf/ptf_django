@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}Home{% endblock %}
+
+<!-- Core theme CSS (includes Bootstrap)-->
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block main_area %}
+    <!-- Projects Section-->
+    <section class="py-5">
+        <div class="container px-5 mb-2">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bolder"><span class="text-gradient d-inline">Chart Project</span></h1>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-11 col-xl-9 col-xxl-8">
+                    <!-- Project Card 2-->
+                    <div class="text-decoration-none text-dark">
+                        <div class="overflow-hidden shadow rounded-4 border-0 mb-2">
+                            <div class="d-flex align-items-center">
+                                <div class="">
+                                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p> -->
+                                    <img class="img-fluid" src="{% static 'assets/주제.png' %}" alt="..." />
+                                </div>
+                            </div>
+                            <!-- <h6 class="text-center fw-bolder text-white" style="font-family: 'SCoreDream' !important; font-style: italic;"><span class="text-gradient d-inline">각 지역 공무원 업무추진비 분석</span></h6> -->
+                            <a href="/dashboard/" class="text-decoration-none text-dark shadow rounded-4">
+                                <div class="p-4" style="background-color: rgb(247, 247, 247);">
+                                    <h6 class=" text-center text-primary" style="font-family: 'SCoreDream' !important; font-weight: 600;"><span class="text-gradient d-inline">Chart dashboard</span></h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+<!-- color: #FD2842; -->
