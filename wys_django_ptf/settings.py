@@ -11,22 +11,27 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
-from pathlib import Path
+# from pathlib import Path
+from . import myenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = myenv.BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*gh3bj2-81k%pqxlf$ab)bsl#(7600a2!5wak-@8@n3^h2+7_5'
+# SECRET_KEY = 'django-insecure-*gh3bj2-81k%pqxlf$ab)bsl#(7600a2!5wak-@8@n3^h2+7_5'
+SECRET_KEY = myenv.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = myenv.SECRET_KEY
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = myenv.ALLOWED_HOSTS
 
 
 # Application definition
@@ -90,12 +95,13 @@ WSGI_APPLICATION = 'wys_django_ptf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+DATABASES = myenv.DATABASES
 
 
 # Password validation

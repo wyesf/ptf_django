@@ -12,7 +12,7 @@
 {% block main_area %}
     <!-- Projects Section-->
     <section class="py-5">
-        <div class="container px-5 mb-5">
+        <div class="container px-5 mb-0">
             <div class="text-center mb-5">
                 <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
             </div>
@@ -41,7 +41,7 @@
                                         <h2 class="fw-bolder">Chart Project</h2>
                                         <p>2022년 한 해 동안 쌓이고 쌓인 서울시 각 지역구청 공무원의 업무추진비를 분석해보자!</p>
                                     </div>
-                                    <img class="img-fluid" style="width:300px; object-fit: cover;" src="{% static 'assets/test_img.png' %}" alt="..." />
+                                    <img class="img-fluid" style="width:300px; object-fit: cover;" src="{% static 'assets/testimg.jpg' %}" alt="..." />
                                 </div>
                             </div>
                         </div>
@@ -79,11 +79,15 @@
         </div>
     </section>
     <!-- Call to action section-->
-    <section class="py-5 bg-gradient-primary-to-secondary text-white">
-        <div class="container px-5 my-5">
+    <section class="bg-light mt-3" style="padding-bottom: 100px;">
+        <div style="width: 900px; margin-right: auto; margin-left: auto;">
+            <img class="thumbnail" src="/static/assets/parallax.png" alt="image">
+        </div>
+        <!-- <section class="py-5 bg-gradient-primary-to-secondary text-white"> -->
+        <div class="text-dark">
             <div class="text-center">
-                <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact/">Contact me</a>
+                <!-- <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2> -->
+                <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact/">Let's build something together</a>
             </div>
         </div>
     </section>

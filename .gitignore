@@ -134,3 +134,5 @@ ptf_venv/
 migrations/
 _media/
 note/
+datss/
+myenv.py
